@@ -6,17 +6,17 @@ using namespace std;
 Node* remove(Node *head){
   Node *temp_1 = head;
   while(temp_1 != NULL){
-    Node *temp_2 = temp_1->next_;
-    Node *temp_3 = temp_1;
+    Node *temp_2 = temp_1->next_;//
+    Node *temp_3 = temp_1;//
 
     while(temp_2 != NULL){
       if(temp_2->data_ == temp_1->data_){
         temp_3->next_ = temp_2->next_;
         temp_2 = temp_2->next_;//
-        continue;
+        continue;//
       }
-      temp_3=temp_2;
-      temp_2=temp_2->next_;
+      temp_3=temp_2;//
+      temp_2=temp_2->next_;//
     }
     temp_1 = temp_1 -> next_;
   }
@@ -24,9 +24,16 @@ Node* remove(Node *head){
 }
 
 //add node to the new linked list
-//Node* add_on_heap(Node *head){
-
-//}
+Node* add_on_heap(Node *head){
+  Node *true_head = new Node(*head);
+  Node *temp_true_head = true_head;
+  while(head->next_ != NULL){
+    head = head->next_;
+    temp_true_head->next_ = new Node(*head);
+    temp_true_head = temp_true_head->next_;
+  }
+  return true_head;
+}
 
 
 void mergeList(Node *first, Node *second) {
@@ -62,9 +69,6 @@ void mergeList(Node *first, Node *second) {
   }
 }
 
-
-
-
 Node *listUnion(Node *first, Node *second) {
   // your code here
   //return NULL;
@@ -72,15 +76,18 @@ Node *listUnion(Node *first, Node *second) {
     return NULL;
   }
   if(first == NULL && second != NULL){
-    return remove(second);
+    //Node *temp = remove(second);
+    return add_on_heap(remove(second));
   }
   if(first != NULL && second == NULL){
-    return remove(first);
+    //Node *temp = remove(first);
+    return add_on_heap(remove(first));
   }
 
   //merge the two lists and call remove
   mergeList(first, second);
-  return remove(first);
+  //Node *temp = remove(first);
+  return add_on_heap(remove(first));
 }
 
 Node::Node() {
