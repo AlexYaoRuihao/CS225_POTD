@@ -6,14 +6,17 @@ using namespace std;
 Node* remove(Node *head){
   Node *temp_1 = head;
   while(temp_1 != NULL){
-    Node *temp_2 = temp_1;
-    while(temp_2->next_ != NULL){
-      Node *temp_3 = temp_2;
-      temp_2 = temp_2->next_;
+    Node *temp_2 = temp_1->next_;
+    Node *temp_3 = temp_1;
+
+    while(temp_2 != NULL){
       if(temp_2->data_ == temp_1->data_){
         temp_3->next_ = temp_2->next_;
         temp_2 = temp_2->next_;//
+        continue;
       }
+      temp_3=temp_2;
+      temp_2=temp_2->next_;
     }
     temp_1 = temp_1 -> next_;
   }
