@@ -10,10 +10,6 @@ void mergeList(Node *first, Node *second) {
   if(second == NULL){
     return;
   }
-
-
-
-
   Node *first_copy = first;
   Node *second_copy = second;
 
