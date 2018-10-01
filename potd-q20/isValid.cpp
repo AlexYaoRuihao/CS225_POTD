@@ -14,9 +14,58 @@ bool isValid(string input) {
     return false;
   }
 
-  stack<char> small_bracket;
-  stack<char> middle_bracket;
-  stack<char> large_bracket;
+  //stack<char> s;
+  //stack<char> s;
+  //stack<char> s;
+  stack<char> s;
 
-  
+  while(!input.empty()){
+    if(input.front() == '('){
+      s.push(input.front());
+    }
+    else if(input.front() == '['){
+      s.push(input.front());
+    }
+    else if(input.front() == '{'){
+      s.push(input.front());
+    }
+    //input.pop();
+    input.replace(0,1,"");
+
+
+  if(input.front() == ')'){
+    if(s.empty()){
+      return false;
+    }
+    if(s.top() != '('){
+      return false;
+    }
+    s.pop();
+  }
+
+  else if(input.front() == ']'){
+    if(s.empty()){
+      return false;
+    }
+    if(s.top() != '['){
+      return false;
+    }
+    s.pop();
+  }
+
+  else if(input.front() == '}'){
+    if(s.empty()){
+      return false;
+    }
+    if(s.top() != '{'){
+      return false;
+    }
+    s.pop();
+  }
+}
+
+if(!s.empty()){
+  return false;
+}
+  return true;
 }
