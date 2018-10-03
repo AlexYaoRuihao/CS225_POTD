@@ -60,7 +60,7 @@ int main() {
     for (vector<double>::iterator it = v3.begin(); it != v3.end(); it++)
         cout << ' ' << *it;
     cout << endl;
-    
+
     sort_vector(v3.begin(), v3.end());
     cout << "Sorted v3: ";
     for (vector<double>::iterator it = v3.begin(); it != v3.end(); it++)
