@@ -60,9 +60,9 @@ int main() {
   p10.data_ = 0; p10.next_ = &p11;
   p11.data_ = 0; p11.next_ = &p12;
   p12.data_ = 0; p12.next_ = &p13;
-  p13.data_ = 2; p13.next_ = &p14;
-  p14.data_ = 2; p14.next_ = &p15;
-  p15.data_ = 2; p15.next_ = &p16;
+  p13.data_ = 3; p13.next_ = &p14;
+  p14.data_ = 3; p14.next_ = &p15;
+  p15.data_ = 3; p15.next_ = &p16;
   p16.data_ = 4; p16.next_ = NULL;
 
   cout<<"First List:"<<endl;
