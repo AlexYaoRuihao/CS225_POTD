@@ -19,4 +19,6 @@ bool isHeightBalanced(TreeNode* root);
 
 void deleteTree(TreeNode* root);
 
+int computingHeight(TreeNode *croot);
+
 #endif
