@@ -21,4 +21,10 @@ TreeNode* findLastUnbalanced(TreeNode* root);
 
 void deleteTree(TreeNode* root);
 
+int computingHeight(TreeNode *croot);
+
+bool isHeightBalanced(TreeNode* root);
+
+int find_balance_factor(TreeNode *croot);
+
 #endif
