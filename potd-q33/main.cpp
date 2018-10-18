@@ -34,7 +34,9 @@ int main() {
   cout << endl;
 
   // Your Code Here (Right or left rotate to balance above tree? )
-
+  /////////////////////////////
+  rightRotate(n3);
+  /////////////////////////////
   preot(n4);
   cout << endl;
   deleteTree(n4);
@@ -57,7 +59,9 @@ int main() {
   preot(n2);
   cout << endl;
  // Your Code Here (Right or left rotate to balance above tree? )
-
+ /////////////////////////////
+ leftRotate(n3);
+ /////////////////////////////
   preot(n2);
   cout << endl;
   deleteTree(n2);

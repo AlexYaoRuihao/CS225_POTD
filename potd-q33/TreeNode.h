@@ -22,4 +22,10 @@ void leftRotate(TreeNode* root);
 
 void deleteTree(TreeNode* root);
 
+
+bool isHeightBalanced(TreeNode* root);
+TreeNode* findLastUnbalanced(TreeNode* root);
+int computingHeight(TreeNode *croot);
+
+
 #endif
