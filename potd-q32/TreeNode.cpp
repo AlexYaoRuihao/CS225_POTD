@@ -2,11 +2,13 @@
 #include <algorithm>
 #include <cstdlib>
 #include <map>
+#include <stack>
+#include <queue>
 
 using namespace std;
 
-//map declaration
-map<TreeNode*, int> good_map;
+queue<TreeNode*> good_queue;
+stack<TreeNode*> good_stack;
 
 int computingHeight(TreeNode *croot){
   if(croot == NULL){
@@ -37,24 +39,76 @@ int find_balance_factor(TreeNode *croot){
 TreeNode* findLastUnbalanced(TreeNode* root) {
   // your code here
   //return NULL;
+  // if(root == NULL){
+  //   return root;
+  // }
+  // TreeNode *left = findLastUnbalanced(root->left_);
+  // TreeNode *right = findLastUnbalanced(root->right_);
+  // if(isHeightBalanced(left) && isHeightBalanced(right)){
+  //   return NULL;
+  // }
+  // /*else{
+  //   if(computingHeight(left) > computingHeight(right)){
+  //     return left;
+  //   }
+  //   else{
+  //     return right;
+  //   }*/
+  // else if(isHeightBalanced(left) && !isHeightBalanced(right)){
+  //   return right;
+  // }
+  // else if(!isHeightBalanced(left) && isHeightBalanced(right)){
+  //   return left;
+  // }
+  // else{
+  //   if(computingHeight(left) > computingHeight(right)){
+  //     return left;
+  //   }
+  //   else{
+  //     return right;
+  // }
+  // }
+  // findLastUnbalanced(root->left_);
+  // findLastUnbalanced(root->right_);
+  //
+  // if(!isHeightBalanced(root)){
+  //   return root;
+  // }
+  // else{
+  //   return NULL;
+  // }
   if(root == NULL){
     return root;
   }
-  TreeNode *left = findLastUnbalanced(root->left_);
-  TreeNode *right = findLastUnbalanced(root->right_);
-  if(isHeightBalanced(left) && isHeightBalanced(right)){
+  good_queue.push(root);
+  if(!isHeightBalanced(root)){
+    good_stack.push(root);
+  }
+  while(!good_queue.empty()){
+    TreeNode *node = good_queue.front();
+    good_queue.pop();
+
+    if(node->left_ != NULL){
+      good_queue.push(node->left_);
+      if(!isHeightBalanced(node->left_)){
+        good_stack.push(node->left_);
+      }
+    }
+    if(node->right_ != NULL){
+      good_queue.push(node->right_);
+      if(!isHeightBalanced(node->right_)){
+        good_stack.push(node->right_);
+      }
+    }
+  }
+  if(good_stack.empty()){
     return NULL;
   }
   else{
-    if(computingHeight(left) > computingHeight(right)){
-      return left;
-    }
-    else{
-      return right;
-    }
+    return good_stack.top();
   }
-
 }
+
 
 void deleteTree(TreeNode* root)
 {
