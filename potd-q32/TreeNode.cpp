@@ -37,46 +37,6 @@ int find_balance_factor(TreeNode *croot){
 }
 
 TreeNode* findLastUnbalanced(TreeNode* root) {
-  // your code here
-  //return NULL;
-  // if(root == NULL){
-  //   return root;
-  // }
-  // TreeNode *left = findLastUnbalanced(root->left_);
-  // TreeNode *right = findLastUnbalanced(root->right_);
-  // if(isHeightBalanced(left) && isHeightBalanced(right)){
-  //   return NULL;
-  // }
-  // /*else{
-  //   if(computingHeight(left) > computingHeight(right)){
-  //     return left;
-  //   }
-  //   else{
-  //     return right;
-  //   }*/
-  // else if(isHeightBalanced(left) && !isHeightBalanced(right)){
-  //   return right;
-  // }
-  // else if(!isHeightBalanced(left) && isHeightBalanced(right)){
-  //   return left;
-  // }
-  // else{
-  //   if(computingHeight(left) > computingHeight(right)){
-  //     return left;
-  //   }
-  //   else{
-  //     return right;
-  // }
-  // }
-  // findLastUnbalanced(root->left_);
-  // findLastUnbalanced(root->right_);
-  //
-  // if(!isHeightBalanced(root)){
-  //   return root;
-  // }
-  // else{
-  //   return NULL;
-  // }
   if(root == NULL){
     return root;
   }
