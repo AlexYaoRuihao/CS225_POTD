@@ -31,4 +31,8 @@ void printRotationType(TreeNode::RotationType rt);
 void deleteTree(TreeNode*& subroot);
 bool isLeaf(const TreeNode * const subroot);
 
+TreeNode* findLastUnbalanced(TreeNode*& root);
+
+bool isHeightBalanced(TreeNode* root);
+
 #endif
