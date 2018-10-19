@@ -21,7 +21,7 @@ void rightRotate(TreeNode* root) {
 
     y->right_ = root;
     root->parent_ = y;
-    root = y;
+    //root = y;
 }
 
 
@@ -36,7 +36,7 @@ void leftRotate(TreeNode* root) {
 
     y->left_ = root;
     root->parent_ = y;
-    root = y;
+    //root = y;
     //y->parent_ = root->parent_;
 }
 /////////////////////////////////////////////////////////
