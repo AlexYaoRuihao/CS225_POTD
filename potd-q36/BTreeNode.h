@@ -16,5 +16,7 @@ struct BTreeNode {
 };
 
 std::vector<int> traverse(BTreeNode* root);
-
+//std::vector<int> pushback(int j, std::vector<int> v);
+//std::vector<int> v1;
+std::vector<int> traverse_helper_function(BTreeNode*& root, std::vector<int> &v);
 #endif
