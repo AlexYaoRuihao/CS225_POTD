@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "functions.h"
+#include <limits.h>
 
 #include <iostream>
 #include <cstdlib>
