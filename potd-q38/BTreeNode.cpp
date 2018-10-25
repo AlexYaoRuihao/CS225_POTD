@@ -2,6 +2,9 @@
 #include <assert.h>
 #include <algorithm>
 #include <iostream>
+#include <cmath>
+
+using namespace std;
 
 /**
  * Check if the given number of elements in a BTree node underflows.
@@ -11,11 +14,17 @@
  */
 bool underflows(unsigned numElem, unsigned order) {
     // TODO: Your code here!
-    return false;
+    //return false;
+    if(numElem < ceil((double) order/2) - 1){
+      return true;
+    }
+    else {
+      return false;
+    }
 }
 
 /**
- * Fix the underflow child node at idx by rotating right 
+ * Fix the underflow child node at idx by rotating right
  * (borrowing a node from left sibling).
  * @param idx The underflow child to be fixed is at children_[idx].
  * @return If the rotation can be done.
@@ -39,23 +48,27 @@ bool BTreeNode::rotateRight(unsigned idx, unsigned order) {
         return false;
     }
     /**
-     * Do the right rotation by stealing one element from left sibling 
+     * Do the right rotation by stealing one element from left sibling
      * and fixing the parent key.
-     * 
+     *
      * Example: Assume we are doing rotateRight around (40) to fix right child
      * (we are in BTreeNode(40), idx = 1 (the second child)),
      *                | 40 |
      *              /         \
      * | 10 | 20 | 30 |     | 60 |
-     * 
+     *
      * after rotation, the tree should look like
      *           | 30 |
-     *         /        \ 
-     * | 10 | 20 |    | 40 | 50 |
-     * 
+     *         /        \
+     * | 10 | 20 |    | 40 | 60 |
+     *
      */
 
     // TODO: do the right rotation here
+    int temp = elements_[idx - 1];//parent #
+    elements_[idx - 1] = children_[idx - 1]->elements_[children_[idx - 1]->elements_.size() - 1];
+    children_[idx - 1]->elements_.pop_back();//pop 30
+    children_[idx]->elements_.insert(children_[idx]->elements_.begin(), temp);
 
     return true;
 }
