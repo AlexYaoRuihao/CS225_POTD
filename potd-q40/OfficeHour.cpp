@@ -13,6 +13,21 @@ Return -1 if there are no staff available to help the nth student
 */
 int waitTime(queue<Student> queue, vector<Staffer> onDutyStaff, int nthStudent) {
     // Your code here!
-
+    //return -1;
+    // int wait_time = 0;
+    // //int i = 0;
+    // for(int i = 0; i < queue.size(); i++){
+    //   for(int j = 0; j < onDutyStaff.size(); j++){
+    //     if(onDutyStaff[j].getEnergyLevel() <= 0){
+    //       onDutyStaff.erase(onDutyStaff.begin() + j);
+    //     }
+    //   }//done remove staff member
+    queue<Student> queue1 = queue;
+    vector<Staffer> vector1 = onDutyStaff;
+    int nthStudent1 = nthStudent;
     return -1;
+
+
+
+    }
 }
