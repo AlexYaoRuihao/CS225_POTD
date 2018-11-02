@@ -29,11 +29,35 @@ void HashTable::printKeys()        // Function to print all keys in the hash tab
 void HashTable::insert(std::string str)         //Inserts str into the hash table; must handle duplicates!
 {
     // your code here
+    int idx = (int)bernstein(str, M);
+    if(contains(str)){
+      return;
+    }
+    table[idx].push_back(str);
 };
 
 bool HashTable::contains(std::string str)       //Checks if the hash table contains str
 {
     // your code here
+    //return false;
+    //for(int i = 0; i < M; ++i){
+    int idx = (int)bernstein(str, M);
+      for(auto it = table[idx].begin(); it != table[idx].end(); ++it){
+        if(*it == str){
+          return true;
+        }
+      }
+    //}
     return false;
 };
 
+
+
+
+
+
+
+
+
+
+///////
