@@ -3,6 +3,24 @@
 
 void Heap::_percolateDown(int hole) {
     // your code here
+    if (hole * 2 > (int) _data.size() - 1) {
+      return;
+    }
+    unsigned maxChildIndex = 0;
+
+    if (_data[hole * 2 + 1] > _data[hole * 2]) {
+      maxChildIndex = hole * 2 + 1;
+    }
+    else  {
+      maxChildIndex = hole * 2;
+    }
+
+    if (_data[hole] < _data[maxChildIndex]) {
+        int temp = _data[hole];
+        _data[hole] = _data[maxChildIndex];
+        _data[maxChildIndex] = temp;
+        _percolateDown(maxChildIndex);
+    }
 }
 
 int Heap::size() const {
