@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
     // Creating a heap
-    vector<int> elems = {4, 10, 30, 90, 110, 150, 300, 500};
+    vector<int> elems = {1, 3, 5, 7, 9, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21};
     MinHeap myHeap(elems);
 
     // Printing a heap
@@ -24,11 +24,11 @@ int main()
     cout << endl;
 
     // Checking correctness
-    vector<int> expected = {500};
-    if (expected == leafNodes)
-        cout << "Your output is correct" << endl;
-    else
-        cout << "Your output is incorrect" << endl;
-
+    //vector<int> expected = {500};
+    // if (expected == leafNodes)
+    //     cout << "Your output is correct" << endl;
+    // else
+    //     cout << "Your output is incorrect" << endl;
+    //
     return 0;
 }
