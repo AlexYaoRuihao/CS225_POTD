@@ -26,7 +26,7 @@ bool wordPattern(std::string pattern, std::string str) {
         temp.clear();
       }
     }
-    
+
     for(unsigned j = 0; j < good_vector.size(); j++){
       cout<<good_vector[j]<<endl;
     }
@@ -42,10 +42,10 @@ bool wordPattern(std::string pattern, std::string str) {
       //   it++;
       // }
       //cout<<temp<<endl;
-      
+
 
       //test case requires fucking bijection!!!!!!!!
-      
+
       if(good_map.find(pattern[i]) != good_map.end()){//found
         if(good_map[pattern[i]] != good_vector[i]){
           return false;
@@ -53,6 +53,16 @@ bool wordPattern(std::string pattern, std::string str) {
       }
       else{//not found
         good_map[pattern[i]] = good_vector[i];
+      }
+
+      for(auto &it1 : good_map){
+        for(auto &it2 : good_map){
+          if(it2.first != it1.first){
+            if(it2.second == it1.second){
+              return false;
+            }
+          }
+        }
       }
       //i++;
       //temp.clear();

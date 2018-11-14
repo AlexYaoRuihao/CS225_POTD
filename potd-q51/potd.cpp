@@ -13,9 +13,9 @@ vector<string> topThree(string filename) {
     if (infile.is_open()) {
         while (getline(infile, line)) {
             // do things
+            
         }
     }
     infile.close();
     return ret;
 }
-
