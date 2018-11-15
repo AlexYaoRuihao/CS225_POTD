@@ -2,7 +2,11 @@
 #include <vector>
 #include "Swiftcipher.h"
 
+using namespace std;
+
 int main() {
     // call decipherer here!
-	return 0;	
+		string ret = decipherer("example.txt");
+		cout<<ret<<endl;
+		return 0;
 }
