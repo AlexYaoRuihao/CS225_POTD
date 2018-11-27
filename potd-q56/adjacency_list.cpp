@@ -1,23 +1,53 @@
 #include <iostream>
 #include <string>
+#include "adjacency_list.h"
 
 using namespace std;
 
 bool containsEdge(Graph const * const g, int src, int dest) {
-        // Your code here
+    // Your code here
+    LinkedListNode *linkedlistnode = g->adjLists[src].edges;
+    while(linkedlistnode){
+      if(linkedlistnode->v == dest){
+        return true;
+      }
+      linkedlistnode = linkedlistnode->next;
+    }
+    return false;
 }
 
 void addEdge(Graph* g, int src, int dest) {
-        // Your code here
+    // Your code here
+    AdjacencyList *adjacencylist = g->adjLists;
+    LinkedListNode *new_edge = new LinkedListNode();
+    new_edge->next = adjacencylist[src].edges;
+    new_edge->v = dest;
+    adjacencylist[src].edges = new_edge;
 }
 
 int numOutgoingEdges(Graph const * const g, int v) {
-        // Your code here
+    // Your code here
+    int num = g->n;
+    int count = 0;
+    for(int i = 0; i < num; i++){
+      if(containsEdge(g, v, i)){
+        count++;
+      }
+    }
+    return count;
 }
 
 
 int numIncomingEdges(Graph const * const g, int v) {
-        // Your code here
+    // Your code here
+    int num = g->n;
+    int count = 0;
+    for(int i = 0; i < num; i++){
+      if(containsEdge(g, i, v)){
+        count++;
+      }
+    }
+    return count;
 }
 
 // No need to modify the functions below
