@@ -37,7 +37,7 @@ int numIncomingEdges(Graph const * const g, int v) {
     //return 0;
     int count = 0;
     for(int i = 0; i < g->n; i++){
-      if(containsEdge(g, i, v)){
+      if(containsEdge(g, i, v)){ 
         count++;
       }
     }
