@@ -15,6 +15,11 @@ int main() {
     bool augmentingPath = hasAugmentingPath(g);
     cout << "Has augmenting path: " << augmentingPath << endl;
 
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
+
     ResidualNetwork g2 = ResidualNetwork(3);
     g2.setEdge(0, 1, 1);
     g2.setEdge(1, 2, 1);
