@@ -25,15 +25,12 @@ void run2048(int puzzle[4][4], int dir) {
       //begin sliding
       for(int i = 0; i <= 3; i++){
         for(int j = 0; j <= 3; j++){
-
           if(puzzle[i][j] != 0){
             continue;
           }
-
           else{
             int temp_j = j;
             temp_j++;
-
             while(temp_j < 4){
               if(puzzle[i][temp_j] != 0){
                 swap(puzzle[i][j], puzzle[i][temp_j]);
@@ -41,28 +38,49 @@ void run2048(int puzzle[4][4], int dir) {
               }
               temp_j++;
             }
-
           }
+        }
+      }
 
-        }
-      }
+      //corner case: 2 2 4 4 -> 4 16 0 0
       //begin merging
-      for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 2; j++){
-          
+      for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 3; j++){
+          if(puzzle[i][j] == puzzle[i][j+1]){
+            puzzle[i][j] += puzzle[i][j];
+            puzzle[i][j+1] = 0;
+          }
         }
       }
+
+      for(int i = 0; i <= 3; i++){
+        for(int j = 0; j <= 3; j++){
+          if(puzzle[i][j] != 0){
+            continue;
+          }
+          else{
+            int temp_j = j;
+            temp_j++;
+            while(temp_j < 4){
+              if(puzzle[i][temp_j] != 0){
+                swap(puzzle[i][j], puzzle[i][temp_j]);
+                break;
+              }
+              temp_j++;
+            }
+          }
+        }
+      }
+
     }
 
     else if(dir == 1){//going up
       //begin sliding
       for(int j = 0; j <= 3; j++){
         for(int i = 0; i <= 3; i++){
-
           if(puzzle[i][j] != 0){
             continue;
           }
-
           else{
             int temp_i = i;
             temp_i++;
@@ -75,11 +93,37 @@ void run2048(int puzzle[4][4], int dir) {
               temp_i++;
             }
           }
-
         }
       }
       //begin merging
+      for(int j = 0; j < 4; j++){
+        for(int i = 0; i < 3; i++){
+          if(puzzle[i][j] == puzzle[i+1][j]){
+            puzzle[i][j] += puzzle[i][j];
+            puzzle[i+1][j] = 0;
+          }
+        }
+      }
 
+      for(int j = 0; j <= 3; j++){
+        for(int i = 0; i <= 3; i++){
+          if(puzzle[i][j] != 0){
+            continue;
+          }
+          else{
+            int temp_i = i;
+            temp_i++;
+
+            while(temp_i < 4){
+              if(puzzle[temp_i][j] != 0){
+                swap(puzzle[i][j], puzzle[temp_i][j]);
+                break;
+              }
+              temp_i++;
+            }
+          }
+        }
+      }
 
     }
 
@@ -87,15 +131,12 @@ void run2048(int puzzle[4][4], int dir) {
       //begin sliding
       for(int i = 0; i <= 3; i++){
         for(int j = 3; j >= 0; j--){
-
           if(puzzle[i][j] != 0){
             continue;
           }
-
           else{
             int temp_j = j;
             temp_j--;
-
             while(temp_j >= 0){
               if(puzzle[i][temp_j] != 0){
                 swap(puzzle[i][j], puzzle[i][temp_j]);
@@ -104,10 +145,37 @@ void run2048(int puzzle[4][4], int dir) {
               temp_j--;
             }
           }
-
         }
       }
       //begin merging
+      for(int i = 0; i < 4; i++){
+        for(int j = 3; j > 0; j--){
+          if(puzzle[i][j] == puzzle[i][j-1]){
+            puzzle[i][j] += puzzle[i][j];
+            puzzle[i][j-1] = 0;
+          }
+        }
+      }
+
+      for(int i = 0; i <= 3; i++){
+        for(int j = 3; j >= 0; j--){
+          if(puzzle[i][j] != 0){
+            continue;
+          }
+          else{
+            int temp_j = j;
+            temp_j--;
+            while(temp_j >= 0){
+              if(puzzle[i][temp_j] != 0){
+                swap(puzzle[i][j], puzzle[i][temp_j]);
+                break;
+              }
+              temp_j--;
+            }
+          }
+        }
+      }
+
 
     }
 
@@ -136,8 +204,37 @@ void run2048(int puzzle[4][4], int dir) {
         }
       }
       //begin merging
+      for(int j = 0; j < 4; j++){
+        for(int i = 3; i > 0; i--){
+          if(puzzle[i][j] == puzzle[i-1][j]){
+            puzzle[i][j] += puzzle[i][j];
+            puzzle[i-1][j] = 0;
+          }
+        }
+      }
 
+      for(int j = 0; j <= 3; j++){
+        for(int i = 3; i >= 0; i--){
 
+          if(puzzle[i][j] != 0){
+            continue;
+          }
+
+          else{
+            int temp_i = i;
+            temp_i--;
+
+            while(temp_i >= 0){
+              if(puzzle[temp_i][j] != 0){
+                swap(puzzle[i][j], puzzle[temp_i][j]);
+                break;
+              }
+              temp_i--;
+            }
+          }
+
+        }
+      }
     }
 
 }
